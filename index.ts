@@ -1,20 +1,29 @@
-import * as d3 from 'd3'
+import { data } from './src/data'
+import { text } from 'd3'
 
 document.addEventListener('DOMContentLoaded', () => {
-    d3
-        .select('svg')
-        .selectAll('circle')
-        .data([
-            [1, 2],
-            [2, 2],
-            [3, 4],
-        ])
-        .enter().append('circle')
-        .attr('r', 3)
-        .attr('fill', 'blue')
-        .attr('cx', xy => xy[0] * 30)
-        .attr('cy', xy => xy[1] * 30)
-        .style('color', () => {
-            return ['blue', 'red'][1]
+    const svg = document.querySelector('svg')
+    const svge = (tag: string) =>
+        document.createElementNS('http://www.w3.org/2000/svg', tag)
+
+    data.forEach(d => {
+        console.log(d)
+        const circle = svge('circle')
+        const text = svge('text')
+        text.textContent = d.label
+
+        circle.addEventListener('mouseover', e => {
+            console.log(d.label)
         })
+
+        circle.setAttribute('cx', `${d.x}`)
+        circle.setAttribute('cy', `${d.y}`)
+        circle.setAttribute('cluster', `${d.cluster}`)
+
+        text.setAttribute('x', `${d.x + 10}`)
+        text.setAttribute('y', `${d.y}`)
+
+        svg?.appendChild(circle)
+        svg?.appendChild(text)
+    })
 })
