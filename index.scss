@@ -14,11 +14,11 @@ circle {
 }
 
 @function some-color($i) {
-    @return rgb(num-256(71 * $i), num-256(941 * $i), num-256(3413 * $i))
+    @return rgb(num-256(113 * $i), num-256(941 * $i), num-256(3413 * $i))
 }
 
-@for $i from 1 to 100 {
-  circle[cluster='#{$i}'] {
+@for $i from 1 to 999 {
+  circle[label='#{$i}'] {
     fill: some-color($i)
   }
 }
