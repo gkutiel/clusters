@@ -29,14 +29,14 @@ svg{
 }
 
 circle {
-    r:1;
+    r:1.5;
     stroke-width: 1;
     cursor: pointer;
 }
 
 
 $fills: red blue green gold orange magenta brown pink black khaki indigo;
-$strokes: darkblue darkcyan darkgray forestgreen lightskyblue navy olive orangered plum salmon teal yellow wheat;
+$strokes: darkblue darkcyan forestgreen lightskyblue navy olive orangered plum salmon teal yellow wheat darkgray;
 
 @function get-fill($i) {
     @return list.nth($fills, $i % 11 + 1)
