@@ -4,10 +4,13 @@
     box-sizing: border-box;
 }
 
-html, body{
+html, body, #content{
     margin: 0;
     padding: 0;
+    height: 100%;
+    width: 100%;
 }
+
 
 .row{
     display: flex;
@@ -17,9 +20,17 @@ html, body{
     flex-grow: 1;
 }
 
+#text{
+    border: 1px solid blue;
+}
+
+svg{
+    border: 1px solid red;
+}
+
 circle {
-    r:5;
-    stroke-width: 3;
+    r:1;
+    stroke-width: 1;
     cursor: pointer;
 }
 

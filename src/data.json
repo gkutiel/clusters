@@ -10,5 +10,17 @@
         "y": 1,
         "label": 2,
         "data": "lala baba 2"
+    },
+    {
+        "x": 5,
+        "y": -2,
+        "label": 2,
+        "data": "lala baba 2"
+    },
+    {
+        "x": -5,
+        "y": -2,
+        "label": 3,
+        "data": "lala baba 2"
     }
 ]
