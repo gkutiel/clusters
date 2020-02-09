@@ -1,34 +1,45 @@
-@use 'sass:math';
+@use 'sass:list';
 
-h1 {
-    color: gold;
+* {
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.row{
+    display: flex;
+}
+
+.col{
+    flex-grow: 1;
 }
 
 circle {
     r:5;
+    stroke-width: 3;
     cursor: pointer;
 }
 
-@function num-256($n) {
-    @return math.round((1 + math.sin($n)) * 128)
+
+$fills: red blue green gold orange magenta brown pink black khaki indigo;
+$strokes: darkblue darkcyan darkgray forestgreen lightskyblue navy olive orangered plum salmon teal yellow wheat;
+
+@function get-fill($i) {
+    @return list.nth($fills, $i % 11 + 1)
 }
 
-@function some-color($i) {
-    @return rgb(num-256(113 * $i), num-256(941 * $i), num-256(3413 * $i))
+@function get-stroke($i) {
+    @return list.nth($strokes, $i % 13 + 1)
 }
 
-@for $i from 1 to 999 {
-  circle[label='#{$i}'] {
-    fill: some-color($i)
+@for $i from 1 to 11 * 13  {
+  [label='#{$i}'] {
+    fill: get-fill($i);
+    stroke: get-stroke($i);
   }
 }
 
 
-text {
-    transition: all 1s;
-    fill: transparent;
-}
-
-circle:hover + text {
-    fill:black;
-}
