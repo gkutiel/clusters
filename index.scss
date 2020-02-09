@@ -7,7 +7,7 @@
 
 html{
     font-family: 'Roboto', sans-serif;
-    color: #333;
+    color: #444;
 }
 
 html, body, #content{
@@ -23,7 +23,8 @@ html, body, #content{
 }
 
 .col{
-    flex-grow: 1;
+    // flex-grow: 1;
+    flex-basis: 50vw;
 }
 
 svg{
@@ -33,6 +34,7 @@ svg{
 
 #text{
     overflow: auto;
+    scroll-behavior: smooth;
 }
 
 
@@ -52,14 +54,13 @@ g{
 
 .txt {
     padding: 5em 1em;
-    &::before{
-        content: attr(label);
-        display: block;
-        text-align: center;
-        font-size: 150%;
-    }
 }
 
+:target{
+    background-color: #ffff99;
+    font-weight: 400;
+    color: black;
+}
 $fills: red blue green gold orange magenta brown pink black khaki indigo;
 $strokes: darkblue darkcyan forestgreen lightskyblue navy olive orangered plum salmon teal yellow wheat darkgray;
 

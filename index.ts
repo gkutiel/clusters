@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return g
 
         const gg = e('div')
+        gg.id = `l${label}`
         gg.className = 'txt'
         gg.setAttribute('label', `${label}`)
         txt?.appendChild(gg)
@@ -65,11 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const circle = svge('circle')
 
         circle.addEventListener('click', e => {
-            document.querySelector(`.txt[label='${d.label}']`)?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'end',
-                inline: 'nearest'
-            })
+            window.location.hash = `l${d.label}`
+            // document.querySelector(`.txt[label='${d.label}']`)?.scrollIntoView({
+            //     behavior: 'smooth',
+            //     block: 'start',
+            //     // inline: 'nearest'
+            // })
         })
 
         circle.setAttribute('cx', `${scale_x(d.x)}`)
