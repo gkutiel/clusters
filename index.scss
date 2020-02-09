@@ -45,8 +45,8 @@ circle {
 }
 
 g{
-    transition: all 1s;
-    opacity: .5;
+    transition: all .5s;
+    opacity: .3;
     &:hover{
         opacity: 1;
     }
