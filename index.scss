@@ -1,7 +1,13 @@
 @use 'sass:list';
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 * {
     box-sizing: border-box;
+}
+
+html{
+    font-family: 'Roboto', sans-serif;
+    color: #333;
 }
 
 html, body, #content{
@@ -20,20 +26,38 @@ html, body, #content{
     flex-grow: 1;
 }
 
-#text{
-    border: 1px solid blue;
+svg{
+    border-right: 1px solid #eee;
+    padding: 1em;
 }
 
-svg{
-    border: 1px solid red;
+#text{
+    overflow: auto;
 }
+
 
 circle {
-    r:1.5;
-    stroke-width: 1;
+    r:.8;
+    stroke-width: .3;
     cursor: pointer;
 }
 
+g{
+    opacity: .5;
+    &:hover{
+        opacity: 1;
+    }
+}
+
+.txt {
+    padding: 5em 1em;
+    &::before{
+        content: attr(label);
+        display: block;
+        text-align: center;
+        font-size: 150%;
+    }
+}
 
 $fills: red blue green gold orange magenta brown pink black khaki indigo;
 $strokes: darkblue darkcyan forestgreen lightskyblue navy olive orangered plum salmon teal yellow wheat darkgray;

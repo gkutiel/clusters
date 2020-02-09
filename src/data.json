@@ -28,5 +28,17 @@
         "y": 4,
         "label": 4,
         "data": "lala baba 2"
+    },
+    {
+        "x": 2,
+        "y": 18,
+        "label": 4,
+        "data": "lala baba 2"
+    },
+    {
+        "x": 13,
+        "y": 7,
+        "label": 4,
+        "data": "lala baba 2"
     }
 ]

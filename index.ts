@@ -31,26 +31,52 @@ document.addEventListener('DOMContentLoaded', () => {
         document.createElementNS('http://www.w3.org/2000/svg', tag)
 
     const t = (txt: string) => {
-        const i = document.createElement('li')
+        const i = document.createElement('p')
         i.innerText = txt
         return i
+    }
+
+    const e = (tag: string) => document.createElement(tag)
+
+    function get_g(label: number) {
+        const g = document.querySelector(`g[label='${label}']`)
+        if (g)
+            return g
+
+        const gg = svge('g')
+        gg.setAttribute('label', `${label}`)
+        svg?.appendChild(gg)
+        return gg
+    }
+
+    function get_txt_g(label: number) {
+        const g = document.querySelector(`.txt[label='${label}']`)
+        if (g)
+            return g
+
+        const gg = e('div')
+        gg.className = 'txt'
+        gg.setAttribute('label', `${label}`)
+        txt?.appendChild(gg)
+        return gg
     }
 
     data.forEach(d => {
         const circle = svge('circle')
 
-        circle.addEventListener('mouseover', e => {
-            console.log(d.label)
+        circle.addEventListener('click', e => {
+            document.querySelector(`.txt[label='${d.label}']`)?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'end',
+                inline: 'nearest'
+            })
         })
 
         circle.setAttribute('cx', `${scale_x(d.x)}`)
         circle.setAttribute('cy', `${scale_y(d.y)}`)
         circle.setAttribute('label', `${d.label}`)
 
-        // text.setAttribute('x', `${d.x * 30 + 10}`)
-        // text.setAttribute('y', `${d.y * 30}`)
-
-        svg?.appendChild(circle)
-        txt?.appendChild(t(d.data))
+        get_g(d.label).appendChild(circle)
+        get_txt_g(d.label).appendChild(t(d.data))
     })
 })
