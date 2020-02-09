@@ -1,4 +1,4 @@
-// import * as data from './src/data.json'
+
 type point = {
     x: number
     y: number
@@ -6,7 +6,7 @@ type point = {
     data: string
 }
 
-const data: point[] = require('./src/data.json')
+const data: point[] = require('./data.json')
 
 document.addEventListener('DOMContentLoaded', () => {
     const xs = data.map(d => d.x)
@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const scale_y = (y: number) =>
         (y - min_y) * 100 / (max_y - min_y)
 
-    console.log(min_x, max_x, min_y, max_y)
 
     const svg = document.querySelector('svg')
     const txt = document.querySelector('#text')
@@ -67,11 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         circle.addEventListener('click', e => {
             window.location.hash = `l${d.label}`
-            // document.querySelector(`.txt[label='${d.label}']`)?.scrollIntoView({
-            //     behavior: 'smooth',
-            //     block: 'start',
-            //     // inline: 'nearest'
-            // })
         })
 
         circle.setAttribute('cx', `${scale_x(d.x)}`)
